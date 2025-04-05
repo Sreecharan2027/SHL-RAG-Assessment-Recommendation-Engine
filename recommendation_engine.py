@@ -5,7 +5,7 @@ import cohere
 import streamlit as st
 
 # Get API Key from Streamlit secrets
-cohere_api_key = st.secrets["CO_API_KEY"]
+cohere_api_key = st.secrets["COHERE_API_KEY"]
 client = cohere.Client(cohere_api_key)
 
 EMBED_MODEL = "embed-english-v3.0"
