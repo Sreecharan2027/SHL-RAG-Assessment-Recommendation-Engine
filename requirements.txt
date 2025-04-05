@@ -1,5 +1,5 @@
 faiss-cpu==1.7.4
-streamlit
+numpy==1.23.5
 cohere
-numpy
+streamlit
 python-dotenv
