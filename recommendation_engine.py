@@ -1,12 +1,13 @@
 import json, os
 import faiss
 import numpy as np
-from dotenv import load_dotenv
 import cohere
+import streamlit as st
 
-load_dotenv()
-cohere_api_key = os.getenv("COHERE_API_KEY")
+# Get API Key from Streamlit secrets
+cohere_api_key = st.secrets["CO_API_KEY"]
 client = cohere.Client(cohere_api_key)
+
 EMBED_MODEL = "embed-english-v3.0"
 
 def load_catalog(path="data/shl_catalogue.json"):
@@ -29,7 +30,7 @@ def build_faiss_index(catalog, index_path="faiss_index/index.faiss"):
         return index, {int(k): v for k, v in id_map.items()}
 
     os.makedirs("faiss_index", exist_ok=True)
-    
+
     # Build description strings from relevant fields
     descriptions = [
         f"""Assessment Name: {item['Assessment Name']}
