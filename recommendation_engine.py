@@ -4,9 +4,10 @@ import numpy as np
 import cohere
 import streamlit as st
 
-cohere_api_key = st.secrets.get("COHERE_API_KEY") or os.getenv("COHERE_API_KEY")
+cohere_api_key = os.getenv("COHERE_API_KEY")
 if not cohere_api_key:
-    raise ValueError("Cohere API key not found in Streamlit secrets or environment variables.")
+    raise ValueError("COHERE_API_KEY not found in environment variables.")
+
 
 client = cohere.Client(cohere_api_key)
 
