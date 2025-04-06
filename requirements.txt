@@ -6,3 +6,4 @@ pydantic
 streamlit==1.32.0
 requests
 cohere
+dotenv
